@@ -6,7 +6,6 @@ import ethel.main.Entity;
 import ethel.main.Ethel;
 import ethel.main.Instance;
 import ethel.main.Sprite;
-import ethel.main.utils.Cristofer;
 
 public class TestObject extends Entity {
 

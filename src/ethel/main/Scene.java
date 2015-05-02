@@ -3,17 +3,23 @@ package ethel.main;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import ethel.main.graphics.GuiInstance;
+
 public abstract class Scene {
 	public Camera camera = new Camera(0f, 0f, 0f);
 	public ArrayList<Instance> instances = new ArrayList<Instance>();
+	public ArrayList<GuiInstance> guiinstances = new ArrayList<GuiInstance>();
 	public Color backgroundcolor = new Color(0,0,0);
+	public boolean init = false;
 	
 	public void update(){
 		updateInstances();
 		tick();
 		draw();
+		updateGuiInstances();
 	}
 	
+	public abstract void init();
 	public abstract void tick();
 	public abstract void draw();
 	
@@ -27,9 +33,25 @@ public abstract class Scene {
 		instances.remove(instance);
 	}
 	
+	public void instantiate(GuiInstance instance){
+		instance.onInstantiation();
+		guiinstances.add(instance);
+	}
+	
+	public void destroy(GuiInstance instance){
+		instance.onDestruction();
+		guiinstances.remove(instance);
+	}
+	
 	private void updateInstances(){
 		for(int i = 0; i < instances.size(); i++){
 			Instance instance = instances.get(i);
+			instance.update();
+		}
+	}
+	private void updateGuiInstances(){
+		for(int i = 0; i < guiinstances.size(); i++){
+			GuiInstance instance = guiinstances.get(i);
 			instance.update();
 		}
 	}

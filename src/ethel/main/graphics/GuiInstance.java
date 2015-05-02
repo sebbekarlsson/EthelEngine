@@ -32,4 +32,6 @@ public abstract class GuiInstance {
 
 	public abstract void tick();
 	public abstract void draw();
+	public abstract void onInstantiation();
+	public abstract void onDestruction();
 }

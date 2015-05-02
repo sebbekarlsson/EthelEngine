@@ -55,7 +55,10 @@ public class Ethel {
 			GL11.glEnable(GL11.GL_TEXTURE_2D);
 			GL11.glColor3f(1, 1, 1);
 			
-			
+			if(getCurrentScene().init == false){
+				getCurrentScene().init();
+				getCurrentScene().init = true;
+			}
 			
 			GL11.glPushMatrix();
 			GL11.glTranslatef(-camera.x, -camera.y, -camera.z);
