@@ -20,6 +20,10 @@ public abstract class Entity extends Instance {
 	}
 	
 	private void updatePhysics(){
+		
+		x += dx;
+		y += dy;
+		
 		if(dx > 0){
 			if(dx - friction < 0){
 				dx = 0;
