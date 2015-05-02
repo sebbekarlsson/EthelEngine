@@ -3,6 +3,8 @@ package ethel.main;
 import java.awt.Color;
 import java.util.ArrayList;
 
+import org.lwjgl.opengl.GL11;
+
 import ethel.main.graphics.GuiInstance;
 
 public abstract class Scene {
@@ -13,10 +15,15 @@ public abstract class Scene {
 	public boolean init = false;
 	
 	public void update(){
+		GL11.glTranslatef(-camera.x, -camera.y, -camera.z);
+		GL11.glPushMatrix();
 		updateInstances();
 		tick();
 		draw();
+		GL11.glPopMatrix();
+		GL11.glLoadIdentity();
 		updateGuiInstances();
+
 	}
 	
 	public abstract void init();

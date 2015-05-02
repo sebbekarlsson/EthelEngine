@@ -48,7 +48,6 @@ public class Ethel {
 		
 		while(!Display.isCloseRequested()){
 			Scene scene = Ethel.getCurrentScene();
-			Camera camera = scene.camera;
 			
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
 			GL11.glClearColor(scene.backgroundcolor.getRed()/255, scene.backgroundcolor.getGreen()/255, scene.backgroundcolor.getBlue()/255, 1f);
@@ -61,7 +60,6 @@ public class Ethel {
 			}
 			
 			GL11.glPushMatrix();
-			GL11.glTranslatef(-camera.x, -camera.y, -camera.z);
 			
 			getCurrentScene().update();
 			

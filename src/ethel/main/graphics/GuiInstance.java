@@ -5,7 +5,8 @@ import org.lwjgl.opengl.GL11;
 import ethel.main.Sprite;
 
 public abstract class GuiInstance {
-	public float x,y,z = 0f;
+	public float x,y = 0f;
+	public float z = 1f;
 	public Sprite sprite = new Sprite();
 	
 	public void update(){
@@ -14,6 +15,7 @@ public abstract class GuiInstance {
 	}
 
 	protected void drawDefault(int ortho){
+		
 		GL11.glPushMatrix();
 		GL11.glTranslatef(x, y, z);
 

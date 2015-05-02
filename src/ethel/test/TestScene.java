@@ -34,6 +34,7 @@ public class TestScene extends Scene {
 		backgroundcolor = Color.green;
 		
 		instantiate(new TestObject(120,120));
+		instantiate(new TestGuiObject(0,0));
 		
 		for(int i = 0; i < 100; i++)
 		instantiate(new TestObject2(random.nextInt(Display.getWidth()),random.nextInt(Display.getHeight())));

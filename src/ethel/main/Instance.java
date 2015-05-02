@@ -3,7 +3,8 @@ package ethel.main;
 import org.lwjgl.opengl.GL11;
 
 public abstract class Instance {
-	public float x,y,z = 0f;
+	public float x,y = 0f;
+	public float z = -99f;
 	public Sprite sprite = new Sprite();
 
 	public Instance(float x, float y){
