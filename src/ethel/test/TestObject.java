@@ -6,6 +6,7 @@ import ethel.main.Entity;
 import ethel.main.Ethel;
 import ethel.main.Instance;
 import ethel.main.Sprite;
+import ethel.main.utils.Cristofer;
 
 public class TestObject extends Entity {
 
@@ -47,7 +48,7 @@ public class TestObject extends Entity {
 	@Override
 	public void onCollision(Instance instance) {
 		if(instance instanceof TestObject2)
-		Ethel.getCurrentScene().destroy(instance);
+		((TestObject2) instance).addForce(0.5f, (sprite.rotation-90));
 		
 	}
 

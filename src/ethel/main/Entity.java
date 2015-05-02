@@ -56,4 +56,8 @@ public abstract class Entity extends Instance {
 			}
 		}
 	}
+	
+	public float getForce(){
+		return (float)(Math.cos(dx) + Math.sin(dy));
+	}
 }
