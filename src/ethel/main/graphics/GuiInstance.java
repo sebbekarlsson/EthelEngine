@@ -10,14 +10,16 @@ public abstract class GuiInstance {
 	public Sprite sprite = new Sprite();
 	
 	public void update(){
+		GL11.glPushMatrix();
+		GL11.glTranslatef(x, y, z);
 		tick();
 		draw();
+		GL11.glPopMatrix();
 	}
 
 	protected void drawDefault(int ortho){
 		
-		GL11.glPushMatrix();
-		GL11.glTranslatef(x, y, z);
+		
 
 		if(ortho == Sprite.CENTER){
 			sprite.drawCenter();
@@ -28,7 +30,7 @@ public abstract class GuiInstance {
 			System.exit(1);
 		}
 
-		GL11.glPopMatrix();
+	
 	}
 	
 

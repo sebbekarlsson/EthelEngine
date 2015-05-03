@@ -4,6 +4,7 @@ import ethel.main.Entity;
 import ethel.main.Ethel;
 import ethel.main.Instance;
 import ethel.main.Sprite;
+import ethel.main.utils.Cristofer;
 
 public class TestObject2 extends Entity {
 
@@ -14,13 +15,12 @@ public class TestObject2 extends Entity {
 
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void draw() {
-		drawDefault(Sprite.CORNER);
+		drawDefault(Sprite.CENTER);
 	}
 	@Override
 	public void onDestruction() {
@@ -36,7 +36,16 @@ public class TestObject2 extends Entity {
 
 	@Override
 	public void onCollision(Instance instance) {
-		// TODO Auto-generated method stub
+		if(instance instanceof TestObject){
+			addForce(((Entity) instance).getForce(), instance.sprite.rotation-90);
+			addRotationForce(5f, Cristofer.random.nextInt(1));
+		}
+	}
+
+	@Override
+	public void onClick(int clicktype) {
+		addForce(5f, Cristofer.random.nextInt(360));
+		addRotationForce(5f, Cristofer.random.nextInt(1));
 		
 	}
 

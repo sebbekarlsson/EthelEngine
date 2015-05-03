@@ -24,10 +24,7 @@ public class TestScene extends Scene {
 	}
 
 	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		
-	}
+	public void draw() {}
 
 	@Override
 	public void init() {
@@ -36,7 +33,7 @@ public class TestScene extends Scene {
 		instantiate(new TestObject(120,120));
 		instantiate(new TestGuiObject(0,0));
 		
-		for(int i = 0; i < 100; i++)
+		for(int i = 0; i < 500; i++)
 		instantiate(new TestObject2(random.nextInt(Display.getWidth()),random.nextInt(Display.getHeight())));
 		
 	}

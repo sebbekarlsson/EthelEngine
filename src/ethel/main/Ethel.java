@@ -42,6 +42,13 @@ public class Ethel {
 		initGraphics();
 		
 		texturebank = new TextureBank();
+		SCENES.add(new LoadingScene(){
+
+			@Override
+			public void onComplete() {
+				Ethel.SCENEINDEX += 1;
+				
+			}});
 		SCENES.add(new TestScene());
 		
 		physics.start();

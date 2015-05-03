@@ -13,8 +13,11 @@ public abstract class Instance {
 	}
 
 	public void update(){
+		GL11.glPushMatrix();
+		GL11.glTranslatef(x, y, z);
 		tick();
 		draw();
+		GL11.glPopMatrix();
 	}
 
 	public abstract void tick();
@@ -22,12 +25,10 @@ public abstract class Instance {
 	public abstract void onDestruction();
 	public abstract void onInstantiation();
 	public abstract void onCollision(Instance instance);
+	public abstract void onClick(int clicktype);
 
 
 	protected void drawDefault(int ortho){
-		GL11.glPushMatrix();
-		GL11.glTranslatef(x, y, z);
-
 		if(ortho == Sprite.CENTER){
 			sprite.drawCenter();
 		}else if(ortho == Sprite.CORNER){
@@ -36,7 +37,5 @@ public abstract class Instance {
 			System.err.println("The sprite ortho is unavailable, game will terminate.");
 			System.exit(1);
 		}
-
-		GL11.glPopMatrix();
 	}
 }
