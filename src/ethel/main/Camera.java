@@ -1,11 +1,56 @@
 package ethel.main;
 
-public class Camera {
-	public float x,y,z = 0f;
+import org.lwjgl.input.Mouse;
+
+public class Camera extends Entity{
+	private boolean zoomable = false;
+
+	public Camera(float x, float y) {
+		super(x, y);
+		z = 1;
+	}
+
+	public void update(){
+		if(zoomable){
+			z += 0.1 * Mouse.getDWheel()/60;
+		}
+		tick();
+		draw();
+	}
+
+	public void tick(){
+
+	}
+
+	public void draw(){
+
+	}
+
+	@Override
+	public void onDestruction() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onInstantiation() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onCollision(Instance instance) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void onClick(int clicktype) {
+		// TODO Auto-generated method stub
+
+	}
 	
-	public Camera(float x, float y, float z){
-		this.x = x;
-		this.y = y;
-		this.z = z;
+	public void setZoomable(boolean zoomable){
+		this.zoomable = zoomable;
 	}
 }

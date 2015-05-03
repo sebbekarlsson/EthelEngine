@@ -8,7 +8,7 @@ import org.lwjgl.opengl.GL11;
 import ethel.main.graphics.GuiInstance;
 
 public abstract class Scene {
-	public Camera camera = new Camera(0f, 0f, 0f);
+	public Camera camera = new Camera(0f, 0f);
 	public ArrayList<Instance> instances = new ArrayList<Instance>();
 	public ArrayList<GuiInstance> guiinstances = new ArrayList<GuiInstance>();
 	public Color backgroundcolor = new Color(0,0,0);

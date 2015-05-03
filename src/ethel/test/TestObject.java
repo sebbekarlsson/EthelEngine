@@ -28,8 +28,10 @@ public class TestObject extends Entity {
 		}
 		if(Keyboard.isKeyDown(Keyboard.KEY_SPACE)){
 			TestObject2 obj = new TestObject2(x,y);
-			obj.addForce(Cristofer.random.nextFloat()*30, sprite.rotation-90);
+			float f = Cristofer.random.nextFloat()*30;
+			obj.addForce(f, sprite.rotation-90);
 			Ethel.getCurrentScene().instantiate(obj);
+		
 			
 		}
 		

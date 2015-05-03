@@ -28,6 +28,7 @@ public class TestScene extends Scene {
 
 	@Override
 	public void init() {
+		camera.setZoomable(true);
 		backgroundcolor = Color.green;
 		
 		instantiate(new TestObject(120,120));

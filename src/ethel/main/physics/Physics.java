@@ -49,8 +49,12 @@ public class Physics implements Runnable {
 					Camera camera = Ethel.getCurrentScene().camera;
 					float camx = camera.x;
 					float camy = camera.y;
-					if(Mouse.getX() >= instance.x-camx && Mouse.getX() <= instance.x+instance1_texture.getImageWidth()-camx &&
-							(Display.getHeight() - Mouse.getY()) >= instance.y-camy && (Display.getHeight() - Mouse.getY()) <= instance.y+instance1_texture.getImageHeight()-camy){
+					
+					float mx = Mouse.getX() - (camera.z / Display.getWidth()) ;
+					float my = (Display.getHeight() - Mouse.getY()) - (camera.z / Display.getHeight());
+					
+					if(mx >= instance.x-camx && mx <= instance.x+instance1_texture.getImageWidth()-camx &&
+							my >= instance.y-camy && my <= instance.y+instance1_texture.getImageHeight()-camy){
 						instance.onClick(0);
 					}
 				}
