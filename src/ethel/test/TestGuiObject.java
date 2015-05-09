@@ -2,6 +2,8 @@ package ethel.test;
 
 import java.awt.Font;
 
+import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.Color;
 import org.newdawn.slick.TrueTypeFont;
@@ -18,7 +20,8 @@ public class TestGuiObject extends GuiInstance {
 	
 	@Override
 	public void tick() {
-		// TODO Auto-generated method stub
+		y = Display.getHeight() - Mouse.getY();
+		x = Mouse.getX();
 		
 	}
 

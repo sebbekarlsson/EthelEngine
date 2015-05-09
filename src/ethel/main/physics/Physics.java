@@ -17,10 +17,11 @@ public class Physics implements Runnable {
 
 	@Override
 	public void run() {
+			
 		while(true){
 			try {
 				//java is bynligt
-				Thread.sleep(10);
+				Thread.sleep(1);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
@@ -30,18 +31,17 @@ public class Physics implements Runnable {
 
 				for(int ii = 0 ; ii < Ethel.getCurrentScene().instances.size(); ii++){
 					Instance instance2 = Ethel.getCurrentScene().instances.get(ii);
-					Texture instance2_texture = instance2.sprite.getCurrent();
 
-					if(true){
-						if(
-								instance.x >= instance2.x && instance.x <= instance2.x+instance2_texture.getImageWidth() &&
-								instance.y >= instance2.y && instance.y <= instance2.y+instance2_texture.getImageHeight()
-								){
-							instance.onCollision(instance2);
-							instance2.onCollision(instance);
-						}
 
+					if(
+							instance.x >= instance2.x && instance.x <= instance2.x+instance2.getPhysicalSize().getWidth() &&
+							instance.y >= instance2.y && instance.y <= instance2.y+instance2.getPhysicalSize().getWidth()
+							){
+						instance.onCollision(instance2);
+						instance2.onCollision(instance);
 					}
+
+
 
 				}
 
@@ -49,10 +49,10 @@ public class Physics implements Runnable {
 					Camera camera = Ethel.getCurrentScene().camera;
 					float camx = camera.x;
 					float camy = camera.y;
-					
+
 					float mx = Mouse.getX() - (camera.z / Display.getWidth()) ;
 					float my = (Display.getHeight() - Mouse.getY()) - (camera.z / Display.getHeight());
-					
+
 					if(mx >= instance.x-camx && mx <= instance.x+instance1_texture.getImageWidth()-camx &&
 							my >= instance.y-camy && my <= instance.y+instance1_texture.getImageHeight()-camy){
 						instance.onClick(0);

@@ -34,7 +34,7 @@ public class TestScene extends Scene {
 		instantiate(new TestObject(120,120));
 		instantiate(new TestGuiObject(0,0));
 		
-		for(int i = 0; i < 500; i++)
+		for(int i = 0; i < 1000; i++)
 		instantiate(new TestObject2(random.nextInt(Display.getWidth()),random.nextInt(Display.getHeight())));
 		
 	}
